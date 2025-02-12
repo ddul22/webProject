@@ -45,3 +45,4 @@ obj = {
 json = JSON.stringify(obj); // 객체 -> 문자열.
 console.log(json);
 localStorage.setItem('myfriend', json);
+//
