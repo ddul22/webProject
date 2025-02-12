@@ -1,11 +1,10 @@
-$('#signup').click(function() {
-  $('.pinkbox').css('transform', 'translateX(80%)');
-  $('.signin').addClass('nodisplay');
-  $('.signup').removeClass('nodisplay');
-});
+let container = document.getElementById('container');
+console.log(container)
+toggle = () => {
+  container.classList.toggle('sign-in')
+  container.classList.toggle('sign-up')
+}
 
-$('#signin').click(function() {
-  $('.pinkbox').css('transform', 'translateX(0%)');
-  $('.signup').addClass('nodisplay');
-  $('.signin').removeClass('nodisplay');
-});
+setTimeout(() => {
+  container.classList.add('sign-in')
+}, 200)
