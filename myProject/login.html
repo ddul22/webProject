@@ -18,21 +18,18 @@
           <div class="form sign-up">
             <div class="input-group">
               <i class='bx bxs-user'></i>
-              <input type="text" placeholder="Username">
+              <input type="text" placeholder="Username" id="userName">
             </div>
             <div class="input-group">
               <i class='bx bx-mail-send'></i>
-              <input type="email" placeholder="Email">
+              <input type="email" placeholder="ID" id="id" >
             </div>
             <div class="input-group">
               <i class='bx bxs-lock-alt'></i>
-              <input type="password" placeholder="Password">
+              <input type="password" placeholder="Password" id="userPw1">
             </div>
-            <div class="input-group">
-              <i class='bx bxs-lock-alt'></i>
-              <input type="password" placeholder="Confirm password">
-            </div>
-            <button>
+
+              <button id="signupBtn">
               Sign up
             </button>
             <p>
@@ -54,14 +51,14 @@
           <div class="form sign-in">
             <div class="input-group">
               <i class='bx bxs-user'></i>
-              <input type="text" placeholder="Username" id="userName">
+              <input type="text" placeholder="ID" id="loginId">
             </div>
             <div class="input-group">
               <i class='bx bxs-lock-alt'></i>
               <input type="password" placeholder="Password" id="password">
             </div>
             <button id="loginBtn">
-              Sign in
+             Sign in
             </button>
             <p>
               <b>
@@ -116,26 +113,39 @@
     </div>
     <!-- END CONTENT SECTION -->
   </div>
-  
 </body>
+<script src="js/init.js"></script>
 <script src="js/login.js"></script>
 <script>
+  let members = JSON.parse(localStorage.getItem('memberData'));   
+  console.log(members);           
   document.getElementById("loginBtn").addEventListener('click', function(e){
     e.preventDefault();
-    let id = document.querySelector('#userName').value;
+    let id = document.querySelector('#loginId').value;
     let pw = document.querySelector('#password').value;
-    console.log(id,pw)
-    let members = JSON.parse(localStorage.getItem('memberData'));              
+    console.log(id)
      console.log(members);
-
       for(let i = 0; i <members.length; i++) {
         if(members[i].id == id && members[i].pw == pw) {
           alert('환영합니다!!');
+          location.href='index.html'
           return;
         }
       }
       alert('아이디와 비밀번호를 확인하세요');
     });
-    
+
+    document.getElementById("signupBtn").addEventListener('click', function(e){
+      e.preventDefault();
+      let userName = document.querySelector('#userName').value;
+      let id = document.querySelector('#id').value;
+      let passWord = document.querySelector('#userPw1').value;
+      let info = {id: id, pw:passWord, name: userName, responsibility: 'User'};
+      members.push(info);
+      alert('등록이 완료되었습니다');
+      localStorage.setItem('memberData', JSON.stringify(members));       
+
+  });
+
 </script>
 </html>
