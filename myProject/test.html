@@ -2,54 +2,43 @@
 <html lang="en">
 
 <head>
-	<title>BookSaw - Free Book Store HTML CSS Template</title>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="format-detection" content="telephone=no">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="author" content="">
-	<meta name="keywords" content="">
-	<meta name="description" content="">
-
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-
-	<link rel="stylesheet" type="text/css" href="css/normalize.css">
-	<link rel="stylesheet" type="text/css" href="icomoon/icomoon.css">
-	<link rel="stylesheet" type="text/css" href="css/vendor.css">
-	<link rel="stylesheet" type="text/css" href="style.css">
- <style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>희망도서신청</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="icomoon/icomoon.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    #container {
+      background-color: white;
+    }
     form {
       text-align: center;
     }
     table {
-      border: solid 1px #a77405;
-      width: 50%;
-  
+      margin: auto;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      border: 1px solid black;
     }
     th{
-      border: solid 1px #a77405;
       text-align: center;
+      border: 1px solid black;
     }
     td{
-      border: solid 1px #a77405;
       text-align: center;
+      border: 1px solid black;
     }
-    .table tr th,.table tr td{
-    background-color: rgb(243, 242, 236);
-   }
-   img{
-    width: 100px;
-   }
+    
+    .footer-bottom {
+      height: 300px;
+    }
 
- </style>
+  </style>
 </head>
-
-<body data-bs-spy="scroll" data-bs-target="#header" tabindex="0">
-
-	<div id="header-wrap">
+<div id="header-wrap">
 
 		<div class="top-content">
 			<div class="container-fluid">
@@ -76,7 +65,8 @@
 						<div class="right-element">
 							<a href="login.html" class="user-account for-buy"><i
 									class="icon icon-user"></i><span>Account</span></a>
-							<a href="cart.html" class="cart for-buy"><i class="icon icon-clipboard"></i><span>Cart</span></a>
+							<a href="#" class="cart for-buy"><i class="icon icon-clipboard"></i><span>Cart:(0
+									$)</span></a>
 
 							<div class="action-menu">
 
@@ -105,7 +95,6 @@
 					<div class="col-md-2">
 						<div class="main-logo">
 							<a href="index.html"><img src="images/main-logo.png" alt="logo"></a>
-              
 						</div>
 
 					</div>
@@ -116,8 +105,8 @@
 							<div class="main-menu stellarnav">
 								<ul class="menu-list">
 									</li>
-									<li class="menu-item"><a href="index.html" class="=nav-link">Home</a></li>
-									<li class="menu-item"><a href="product.html" class="nav-link">도서목록</a></li>
+									<li class="menu-item"><a href="#home" class="=nav-link">Home</a></li>
+									<li class="menu-item"><a href="#pages" class="nav-link">상품목록</a></li>
 									<li class="menu-item"><a href="addbook.html" class="nav-link">희망도서신청</a></li>
 								</ul>
 
@@ -138,49 +127,79 @@
 
 	</div><!--header-wrap-->
 
+<body>
+  <div id="container">
+    <form name="addMember" action="">
+      <legend>희망도서신청</legend>
+      도서명: <input type="text" id="bookName"><br>
+      저자: <input type="text" id="writer"><br>
+      출판사: <input type="text" id="publisher"><br>
+      가격: <input type="text" id="price"><br>
+      <!-- <input type="submit" value="신청"> -->
+      <button id="applyBtn">신청</button>
+    </form>
+    <br>
+    <table border="2" class = table>
+      <thead>
+        <tr>
+          <th>도서명</th>
+          <th>저자</th>
+          <th>출판사</th>
+          <th>가격</th>
+        </tr>
+      </thead>
+      <tbody id="list">
+      </tbody>
+    </table>
+  </div>
 
-		<div id="container">
-			<form name="addMember" action="">
-        <h1>희망도서신청</h1>
-        도서명: <input type="text" id="bookName"><br>
-        저자: <input type="text" id="writer"><br>
-        출판사: <input type="text" id="publisher"><br>
-        가격: <input type="text" id="price"><br>
-        <!-- <input type="submit" value="신청"> -->
-        <button id="applyBtn">신청</button>
-      </form>
-      <br>
-      <div class="d-flex justify-content-center">
-      <table border="2" class="table w-50 "; >
-        <thead>
-          <tr>
-            <th>사진</th>
-            <th>도서명</th>
-            <th>저자</th>
-            <th>출판사</th>
-            <th>가격</th>
-          </tr>
-        </thead>
-        <tbody id="list">
-        </tbody>
-      </table>
-    </div>
+  <div id="footer-bottom">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+
+					<div class="copyright">
+						<div class="row">
+
+							<div class="col-md-6">
+								<p>© 2022 All rights reserved. Free HTML Template by <a
+										href="https://www.templatesjungle.com/" target="_blank">TemplatesJungle</a></p>
+							</div>
+
+							<div class="col-md-6">
+								<div class="social-links align-right">
+									<ul>
+										<li>
+											<a href="#"><i class="icon icon-facebook"></i></a>
+										</li>
+										<li>
+											<a href="#"><i class="icon icon-twitter"></i></a>
+										</li>
+										<li>
+											<a href="#"><i class="icon icon-youtube-play"></i></a>
+										</li>
+										<li>
+											<a href="#"><i class="icon icon-behance-square"></i></a>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+						</div>
+					</div><!--grid-->
+
+				</div><!--footer-bottom-content-->
+			</div>
 		</div>
+	</div>
 
-
-
-	<script src="js/jquery-1.11.0.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-		crossorigin="anonymous"></script>
-	<script src="js/plugins.js"></script>
-	<script src="js/script.js"></script>
-  <script>
-     let addbook = JSON.parse(localStorage.getItem('addBookData'));
+</body>
+<script src="js/init.js"></script>
+<script>
+  let addbook = JSON.parse(localStorage.getItem('addBookData'));
   let list = document.querySelector('#list');
   addbook.forEach(function (item, idx) {
     list.innerHTML += `<tr>
-                       <td><img src=${item.image}></td>
                        <td>${item.addName}</td>
                        <td>${item.writer}</td>
                        <td>${item.publisher}</td>
@@ -198,21 +217,19 @@
       addName: bookName,
       writer: writer,
       publisher: publisher,
-      price: price,
-      image :'images/'+bookName+'.jpg'
+      price: price
     }
     addbook.push(books);
     alert('신청이 완료되었습니다');
     localStorage.setItem('addBookData', JSON.stringify(addbook));
     document.querySelector('#list').innerHTML += `<tr>
-                                                  <td><img src=${books.image}></td>
                                                   <td>${books.addName}</td>
                                                   <td>${books.writer}</td>
                                                   <td>${books.publisher}</td>
                                                   <td>${books.price}</td>
                                                   </tr>`
   })
-  </script>
-</body>
+</script>
+
 
 </html>

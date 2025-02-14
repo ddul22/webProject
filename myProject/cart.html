@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>BookSaw - Free Book Store HTML CSS Template</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="icomoon/icomoon.css">
+  <link rel="stylesheet" type="text/css" href="css/vendor.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    #container {
+      height: 1000px;
+      padding: 10px;
+    }
+   .table tr th,.table tr td{
+    background-color: rgb(243, 242, 236);
+   }
+  </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#header" tabindex="0">
+
+  <div id="header-wrap">
+
+    <div class="top-content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="social-links">
+              <ul>
+                <li>
+                  <a href="#"><i class="icon icon-facebook"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="icon icon-twitter"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="icon icon-youtube-play"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="icon icon-behance-square"></i></a>
+                </li>
+              </ul>
+            </div>
+            <!--social-links-->
+          </div>
+          <div class="col-md-6">
+            <div class="right-element">
+              <a href="login.html" class="user-account for-buy"><i class="icon icon-user"></i><span>Account</span></a>
+              <a href="#" class="cart for-buy"><i class="icon icon-clipboard"></i><span>Cart</span></a>
+
+              <div class="action-menu">
+
+                <div class="search-bar">
+                  <a href="#" class="search-button search-toggle" data-selector="#header-wrap">
+                    <i class="icon icon-search"></i>
+                  </a>
+                  <form role="search" method="get" class="search-box">
+                    <input class="search-field text search-input" placeholder="Search" type="search">
+                  </form>
+                </div>
+              </div>
+
+            </div>
+            <!--top-right-->
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!--top-content-->
+
+    <header id="header">
+      <div class="container-fluid">
+        <div class="row">
+
+          <div class="col-md-2">
+            <div class="main-logo">
+              <a href="index.html"><img src="images/main-logo.png" alt="logo"></a>
+            </div>
+
+          </div>
+
+          <div class="col-md-10">
+
+            <nav id="navbar">
+              <div class="main-menu stellarnav">
+                <ul class="menu-list">
+                  </li>
+                  <li class="menu-item"><a href="index.html" class="=nav-link">Home</a></li>
+                  <li class="menu-item"><a href="product.html" class="nav-link">도서목록</a></li>
+                  <li class="menu-item"><a href="addbook.html" class="nav-link">희망도서신청</a></li>
+                </ul>
+
+                <div class="hamburger">
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                </div>
+
+              </div>
+            </nav>
+
+          </div>
+
+        </div>
+      </div>
+    </header>
+
+  </div>
+  <!--header-wrap-->
+
+
+  <div id="container">
+    <section id="popular-books" class="bookshelf py-5 my-5">
+      <div class="container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>이미지</th>
+              <th>도서명</th>
+              <th>저자</th>
+              <th>출판사</th>
+              <th>가격</th>
+            </tr>
+
+          </thead>
+          <tbody>
+
+          </tbody>
+          <!--inner-tabs-->
+          <tfoot>
+            
+          </tfoot>
+        </table>
+      </div>
+    </section>
+  </div>
+
+
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+  </script>
+  <script src="js/plugins.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    let cartAry = localStorage.getItem('cartAry')==[]?[]:JSON.parse(localStorage.getItem('cartAry'));
+    console.log(cartAry);
+    let sum = 0;
+    cartAry.forEach(function (item, idx) {
+      let cart = document.querySelector('tbody')
+      cart.innerHTML += `<tr>
+                         <td><img src="${item.image}" alt=""></td>
+                          <td>${item.addName}</td>
+                          <td>${item.writer}</td>
+                          <td>${item.publisher}</td>
+                          <td>${item.price}</td>
+                          </tr>`
+      sum += parseInt(item.price);
+    })
+    console.log(sum);
+    let total = document.querySelector('tfoot')
+    total.innerHTML = `<th colspan="3">총금액</th>
+                       <th>${sum}원</th>
+                       <th><button>결제하기</button></th> `
+    
+  </script>
+
+</body>
+
+</html>

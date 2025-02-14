@@ -20,17 +20,18 @@ const memberData = [
   ,{id: 'user02', pw: '2222', name: '고길동', Responsibility: 'User'}
   ,{id: 'user03', pw: '3333', name: '김지수', Responsibility: 'Admin'}
 ]
-const cartData = [
-   {id:'user01', product: 'P001', qty: 3}
-  ,{id:'user02', product: 'P002', qty: 1}
-  ,{id:'user03', product: 'P003', qty: 2}
-  
-]
 const addBookData = [
-  {addCode: 'A001', addName: '세이노의 가르침', writer: '세이노', publisher: '데이원', price: '7200'}
+  {addCode: 'A001', addName: '세이노의 가르침', writer: '세이노', publisher: '데이원', price: '7200',image:'images/product-item1.jpg'},
+  {addCode: 'A002', addName: '소년이 온다', writer: '한강', publisher: '창비', price: '13500',image:'images/product-item2.jpg'},
+  {addCode: 'A003', addName: '채식주의자', writer: '한강', publisher: '창비', price: '8600',image:'images/product-item3.jpg'},
+  {addCode: 'A004', addName: '작별하지 않는다', writer: '한강', publisher: '문학동네', price: '7200',image:'images/product-item4.jpg'},
+  {addCode: 'A005', addName: '초역 부처의 말', writer: '코이케 류노스케', publisher: ' 포레스트북스', price: '16020',image:'images/product-item5.jpg'},
+  {addCode: 'A006', addName: '모순', writer: '양귀자', publisher: '쓰다', price: '11700',image:'images/product-item6.jpg'},
+  {addCode: 'A007', addName: '어른의 행복은 조용하다', writer: '태수', publisher: '페이지2북스', price: '16020',image:'images/product-item7.jpg'},
+  {addCode: 'A008', addName: '급류', writer: '정대건', publisher: '민음사', price: '12600',image:'images/product-item8.jpg'},
 ]
 localStorage.setItem('memberData', JSON.stringify(memberData));       
 localStorage.setItem('productData', JSON.stringify(productData));
-localStorage.setItem('cartData', JSON.stringify(cartData));
+localStorage.setItem('cartAry', [])
 localStorage.setItem('addBookData', JSON.stringify(addBookData));
   
